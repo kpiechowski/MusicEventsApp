@@ -12,7 +12,7 @@ class MusicEventSeeder extends Seeder
      */
     public function run(): void
     {
-        //
-        $this->call(MusicEventFactory::)
+        
+        
     }
 }

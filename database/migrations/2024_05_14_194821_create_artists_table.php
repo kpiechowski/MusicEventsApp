@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('music_events', function (Blueprint $table) {
+        Schema::create('artists', function (Blueprint $table) {
             
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->string('place');
-            $table->date('start_date');
-            $table->foreignId('artist_id')->constrained('artists');
+            $table->string('profile_avatar');
             $table->timestamps();
 
         });
@@ -29,8 +27,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('music_events', function (Blueprint $table) {
-            Schema::dropIfExists('music_events');
+        Schema::table('artists', function (Blueprint $table) {
+            Schema::dropIfExists('artists');
         });
     }
 };

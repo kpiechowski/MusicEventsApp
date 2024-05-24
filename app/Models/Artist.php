@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Artist extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'bio',
+        'slug',
+        'profile_avatar',
+    ];
+
+    public function musicEvents() {
+        return $this->hasMany(MusicEvent::class);
+    }
+
+    
 }

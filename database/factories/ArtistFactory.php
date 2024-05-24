@@ -23,7 +23,6 @@ class ArtistFactory extends Factory
     {
         $name = fake()->name();
         return [
-            //
             'name' => $name,
             'slug' => Str::slug($name, "-"),
             'profile_avatar' => fake()->imageUrl(),

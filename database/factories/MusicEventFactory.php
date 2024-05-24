@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,10 +17,13 @@ class MusicEventFactory extends Factory
      */
     public function definition(): array
     {
+        $name = fake()->name();
         return [
-            //
-            
-
+            'name' => $name,
+            'slug' => Str::slug($name, "-"),
+            'place' => fake()->city(),
+            'start_date' => fake()->dateTimeBetween('today', '+1 year'),
+            // 'artist_id' => null,
         ];
     }
 }
