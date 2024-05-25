@@ -25,7 +25,7 @@ class ArtistStoreRequest extends FormRequest
             //
             'name' => 'required|string|max:255',
             'bio' => 'string',
-            'profile_avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'profile_avatar' => 'required|image|mimes:jpeg,png,jpg,gif,JPG,JPEG,PNG|max:2048',
         ];
     }
 }

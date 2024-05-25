@@ -6,13 +6,36 @@
 	</x-slot>
 
 	@if (isset($artists) && !empty($artists))
-		<div>
+		<div class="space-y-4">
 
 			@foreach ($artists as $a)
-				{{-- @dump($a) --}}
-				<div class="flex items-center justify-start gap-2 py-2 odd:bg-neutral-50">
-					<img class="h-auto w-24" src="{{ $a->profile_avatar }}" alt="">
-					{{ $a->name }}
+				<div class="flex items-center justify-between gap-2 rounded shadow-md odd:bg-neutral-50">
+
+					<div class="px-4 py-4">
+						<div>
+
+						</div>
+						<h2 class="mb-3">{{ $a->name }}</h2>
+						<p>
+							{{ $a->bio }}
+						</p>
+
+						<div class="flex items-center gap-2 mt-8">
+
+							<x-primary-button type="link" url="{{ route('admin.artists.show', $a) }}">
+								{{ __('View') }}
+							</x-primary-button>
+
+							<x-ghost-button type="link" url="{{ route('admin.artists.edit', $a) }}">
+								{{ __('Edit') }}
+							</x-ghost-button>
+						</div>
+
+					</div>
+
+					<div class="min-h-40 aspect-square max-w-[200px] overflow-hidden rounded">
+						<livewire:image class="object-cover w-full h-full" :src="$a->getProfileAvatar()" />
+					</div>
 				</div>
 			@endforeach
 

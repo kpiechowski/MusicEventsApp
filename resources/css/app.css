@@ -1,3 +1,9 @@
+@import "./components/components.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+    @apply font-primary;
+}

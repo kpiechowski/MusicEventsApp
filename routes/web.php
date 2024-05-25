@@ -14,7 +14,12 @@ Route::middleware(['is_admin'])->prefix('admin')->name('admin.')->group(function
     Route::view('dashboard', 'dashboard')->name('dashboard');
 
     Route::resource('events', AdminEventController::class);
-    Route::resource('artists', AdminArtistController::class);
+
+    Route::resource('artists', AdminArtistController::class)
+        ->missing(fn($request)=> redirect()->route('admin.artists.index')->with('message', 'no model has been found'))
+        ->scoped([
+            'artist' => 'slug',
+        ]);
 
 });
 

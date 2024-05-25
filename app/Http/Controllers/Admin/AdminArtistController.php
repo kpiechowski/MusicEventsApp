@@ -30,15 +30,14 @@ class AdminArtistController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ArtistStoreRequest  $request)
+    public function store(ArtistStoreRequest $request)
     {
         //
-
         $validated = $request->validated();
         $validated['slug'] = Str::slug($validated['name'], '-');
-        
-        $artist = Artist::create($validated);
 
+        $artist = Artist::create($validated);
+        $artist->handleProfileAvatar($request->file('profile_avatar'));
 
         return redirect()->route('admin.artists.index')->with('message', 'Artist has been created');
     }
@@ -57,6 +56,7 @@ class AdminArtistController extends Controller
     public function edit(Artist $artist)
     {
         //
+        return view('admin.artists.edit_form', ['artist' => $artist]);
     }
 
     /**

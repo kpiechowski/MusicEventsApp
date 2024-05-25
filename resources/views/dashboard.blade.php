@@ -12,12 +12,16 @@
 					{{ __("You're logged in!") }}
 				</div>
 
-				<livewire:image :src="'images/parking.jpg'" />
 				<div class="flex w-full">
 
 					<livewire:counter />
 
 				</div>
+
+				<div class="mb-[2200px]">
+
+				</div>
+				<livewire:image :src="'images/parking.jpg'" />
 			</div>
 		</div>
 	</div>

@@ -16,7 +16,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->string('profile_avatar');
+            $table->string('profile_avatar')->nullable();
+            $table->string('bio')->nullable();
             $table->timestamps();
 
         });
