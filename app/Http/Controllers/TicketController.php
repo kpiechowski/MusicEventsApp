@@ -14,6 +14,7 @@ class TicketController extends Controller
     public function index()
     {
         //
+        return redirect()->back();
     }
 
     /**
@@ -38,6 +39,8 @@ class TicketController extends Controller
     public function show(Ticket $ticket)
     {
         //
+
+        dd($ticket);
     }
 
     /**

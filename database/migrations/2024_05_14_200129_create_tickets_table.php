@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tickets', function (Blueprint $table) {
-            $table->id();
 
+            // $table->id();
+            $table->uuid('id')->primary();
             $table->foreignId('music_event_id');
             $table->foreignId('user_id')->default(null);
             $table->decimal('price', total: 8, places: 2);

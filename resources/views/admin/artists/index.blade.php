@@ -9,7 +9,8 @@
 		<div class="space-y-4">
 
 			@foreach ($artists as $a)
-				<div class="flex items-center justify-between gap-2 rounded shadow-md odd:bg-neutral-50">
+				<div
+					class="flex items-center justify-between gap-2 rounded shadow-md odd:bg-neutral-50 dark:bg-gray-600 odd:dark:bg-gray-700">
 
 					<div class="px-4 py-4">
 						<div>

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('place');
             $table->date('start_date');
-            $table->foreignId('artist_id')->constrained('artists');
+            // $table->foreignId('artist_id')->constrained('artists');
             $table->timestamps();
 
         });

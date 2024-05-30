@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="dark" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
 	<meta charset="utf-8">
@@ -11,10 +11,8 @@
 	<!-- Fonts -->
 	<link href="https://fonts.bunny.net" rel="preconnect">
 	<link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-		rel="stylesheet" />
-	{{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /> --}}
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<!-- Scripts -->
 	@vite(['resources/css/app.css', 'resources/js/app.js'])

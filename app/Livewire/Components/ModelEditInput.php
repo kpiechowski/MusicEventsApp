@@ -14,12 +14,17 @@ class ModelEditInput extends Component
     public string | null $eventName = null;
     public $value;
 
-    public string $class = ""; 
+    public $dbValue;
+
+    public string $class = "";
+
+    public string $response = "";
 
     public function handleInputUpdate() {
 
         $this->model->{$this->field} = $this->value;
         $this->model->save();
+        $this->dbValue = $this->value;
         // dd($this->eventName);
         if($this->eventName){
 
@@ -31,6 +36,24 @@ class ModelEditInput extends Component
         
         // return true;
     }
+
+    public function updatedValue(){
+
+        $this->response = "";
+
+        if(empty($this->value)) {
+            $this->value = $this->dbValue;
+            $this->response = "Field cannot be empty";
+            return;
+        }
+
+
+        $this->handleInputUpdate();
+        $this->response = "Field updated!";
+
+
+    }
+
     public function validateModel() {
 
 
@@ -43,7 +66,8 @@ class ModelEditInput extends Component
         $this->model = $model;
         $this->field = $field;
         $this->eventName = $eventName;
-        $this->value = $this->model->{$field}; 
+        $this->value = $this->model->{$field};
+        $this->dbValue = $this->value; 
     }
 
     public function render()

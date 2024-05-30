@@ -8,6 +8,10 @@
 				{{ __('Update') }}
 			</x-primary-button>
 
+			<div class="w-full mt-3 text-slate-700">
+				{{ $response }}
+			</div>
+
 		</form>
 	@endif
 </div>

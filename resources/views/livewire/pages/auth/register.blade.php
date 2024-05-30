@@ -25,6 +25,7 @@ new #[Layout('layouts.guest')] class extends Component {
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        $validated['is_admin'] = 1;
         $validated['password'] = Hash::make($validated['password']);
 
         event(new Registered(($user = User::create($validated))));

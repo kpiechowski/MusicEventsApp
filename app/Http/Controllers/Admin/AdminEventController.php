@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\MusicEvent;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class AdminEventController extends Controller
@@ -14,7 +15,7 @@ class AdminEventController extends Controller
     public function index()
     {
         // dd('elo');
-        return view('admin.events.index', ['events' => MusicEvent::paginate(20)]);
+        return view('admin.events.index', ['events' => MusicEvent::orderBy('start_date', 'asc')->get()]);
     }
 
     /**
@@ -36,15 +37,16 @@ class AdminEventController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(MusicEvent $musicEvent)
     {
         //
+        return view('admin.events.show', ['musicEvent' => $musicEvent]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(MusicEvent $musicEvent)
     {
         //
     }
@@ -52,7 +54,7 @@ class AdminEventController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, MusicEvent $musicEvent)
     {
         //
     }
@@ -60,7 +62,7 @@ class AdminEventController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(MusicEvent $musicEvent)
     {
         //
     }

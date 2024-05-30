@@ -6,11 +6,11 @@
 		</h2>
 	</x-slot>
 
-	<div class="max-w-xl mx-auto">
+	<div class="mx-auto max-w-xl">
 
 		{{-- @dump($artist->editable) --}}
 
-		<div class="w-full mb-8 overflow-hidden rounded-xl">
+		<div class="mb-8 w-full overflow-hidden rounded-xl">
 			<livewire:image :src="$artist->getProfileAvatar()" />
 		</div>
 

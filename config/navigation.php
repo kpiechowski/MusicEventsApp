@@ -20,6 +20,20 @@ return [
             ],
         ],
     ],
+    [
+        'name' => 'Events',
+        'route' => 'admin.music-events.index',
+        'dropdown' => [
+            [
+                'name' => 'All events',
+                'route' => 'admin.music-events.index',
+            ],
+            [
+                'name' => 'Add new',
+                'route' => 'admin.music-events.create',
+            ],
+        ],
+    ],
 
 
 ];
