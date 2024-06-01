@@ -23,8 +23,12 @@
     }
 }
 
+.material-icon-wrapper {
+    @apply flex items-center justify-center w-8 cursor-pointer aspect-square;
+}
+
 .material-icons {
-    @apply font-normal text-sm leading-[100%] text-nowrap rounded-md p-2 cursor-pointer transition-all duration-300;
+    @apply font-normal text-sm leading-[125%] text-nowrap rounded-md p-2 w-full h-full   transition-all duration-300;
 
     font-family: "Material Icons";
     display: inline-block;

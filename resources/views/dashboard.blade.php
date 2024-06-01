@@ -18,7 +18,7 @@
 
 				</div>
 
-				<div class="mb-[2200px]">
+				<div class="">
 
 				</div>
 				<livewire:image :src="'images/parking.jpg'" />

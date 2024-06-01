@@ -12,7 +12,7 @@
 
 		<div class="space-y-4">
 			@foreach ($logs as $log)
-				<div class="{{ $log['type'] == '-' ? 'bg-red-100' : 'bg-green-100' }} rounded-md p-4 shadow"
+				<div class="{{ $log['type'] == '-' ? 'bg-red-100' : 'bg-green-100' }} rounded-md p-4 text-black shadow"
 					wire:key="{{ $log['count'] }}">
 					{{ $log['count'] }} ----- {!! $log['date'] !!}
 				</div>
@@ -20,3 +20,4 @@
 		</div>
 	@endif
 </div>
+ 

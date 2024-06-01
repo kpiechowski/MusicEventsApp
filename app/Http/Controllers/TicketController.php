@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ticket;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreTicketRequest;
 use App\Http\Requests\UpdateTicketRequest;
-use App\Models\Ticket;
 
 class TicketController extends Controller
 {
@@ -66,4 +68,16 @@ class TicketController extends Controller
     {
         //
     }
+
+
+    public function downloadQrCode(Request $request, Ticket $ticket){
+
+        if($request->user()->is_admin || $ticket->user_id === $request->user()->id){
+            return Storage::download($ticket->qr_code_path);
+        } else {
+            return abort(401);
+        }
+
+    }
 }
+

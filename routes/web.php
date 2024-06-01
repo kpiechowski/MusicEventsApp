@@ -36,6 +36,8 @@ Route::middleware('auth')->group(function () {
         ->missing(fn($request) => redirect()->route('admin.dashboard'))
         ->except('index');
 
+    Route::get('tickets/dowload-qr-code/{ticket}', [TicketController::class, 'downloadQrCode'])->name('tickets.download-qr-code');
+
 });
 
 

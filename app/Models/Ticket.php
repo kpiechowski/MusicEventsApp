@@ -12,6 +12,10 @@ class Ticket extends Model
 
     protected $keyType = 'string';
 
+    public function generatePathToQr() {
+        return;
+    }
+
     public function musicEvent() {
         return $this->belongsTo(MusicEvent::class);
     }

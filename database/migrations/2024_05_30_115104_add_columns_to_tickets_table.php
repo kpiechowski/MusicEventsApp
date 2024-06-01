@@ -15,8 +15,8 @@ return new class extends Migration
             //
             $table->foreignId('user_id')->nullable()->change();
             $table->string('pool_name')->nullable()->change();
-
-            $table
+            $table->string('qr_code_path')->nullable()->default(null);
+            $table->foreignId('order_id')->nullable();
         });
     }
 
@@ -28,6 +28,10 @@ return new class extends Migration
         Schema::table('tickets', function (Blueprint $table) {
             $table->foreignId('user_id')->nullable(false)->change();
             $table->string('pool_name')->nullable(false)->change();
+
+            $table->dropColumn('qr_code_path');
+            $table->dropForeign(['order_id']);
+            $table->dropColumn('order_id');
         });
     }
 };

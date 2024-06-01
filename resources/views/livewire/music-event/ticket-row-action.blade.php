@@ -6,13 +6,25 @@
 	<td> {{ $ticket->pool_name }} </td>
 	<td> {{ $ticket->reserved ? 'Yes' : 'No' }} </td>
 
+	<td>
+		@if (!empty($QrCode))
+			<a class="material-icon-wrapper block" href="{{ route('tickets.download-qr-code', $ticket) }}" target="_blank">
+				<span class="material-icons action">download_2</span>
+			</a>
+		@else
+			--
+		@endif
+	</td>
+
 	<td class="inline-flex min-w-[100px] items-center justify-start gap-2">
 
-		<button wire:click="generateQrCode" wire:confirm="This will generate and store QR code for this ticket. Proceed?">
+		<button class="material-icon-wrapper" wire:click="generateQrCode"
+			wire:confirm="This will generate and store QR code for this ticket. Proceed?">
 			<span class="material-icons action">qr_code</span>
 		</button>
 
-		<button wire:click="removeTicket" wire:confirm="Are you sure you want to remove this ticket?">
+		<button class="material-icon-wrapper" wire:click="removeTicket"
+			wire:confirm="Are you sure you want to remove this ticket?">
 			<span class="material-icons danger">delete_forever</span>
 		</button>
 	</td>

@@ -14,4 +14,13 @@ class MusicEvent extends Model
         return 'slug';
     }
 
+    public function tickets() {
+        return $this->hasMany(Ticket::class);
+    }
+    public function pools() {
+        return $this->hasMany(TicketPool::class);
+    }
+
+
+
 }
