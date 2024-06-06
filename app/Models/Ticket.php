@@ -19,6 +19,10 @@ class Ticket extends Model
     public function musicEvent() {
         return $this->belongsTo(MusicEvent::class);
     }
+
+    public function ticketPool(){
+        return $this->belongsTo(TicketPool::class);
+    }
     protected static function boot()
     {
         parent::boot();

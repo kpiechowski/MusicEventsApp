@@ -24,6 +24,8 @@ class AdminEventController extends Controller
     public function create()
     {
         //
+        return view('admin.events.create');
+
     }
 
     /**
@@ -40,6 +42,7 @@ class AdminEventController extends Controller
     public function show(MusicEvent $musicEvent)
     {
         //
+        // dd($musicEvent);
         return view('admin.events.show', ['musicEvent' => $musicEvent]);
     }
 

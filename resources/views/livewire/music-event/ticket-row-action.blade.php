@@ -3,12 +3,13 @@
 <tr
 	class="odd:bg-gray-600/85 {{ $state == 'removed' ? 'hidden' : '' }} w-full border-b border-gray-700 bg-gray-600 text-gray-200 [&>td]:px-4 [&>td]:py-2">
 	<td class="text-nowrap w-[250px] max-w-[250px] overflow-hidden text-ellipsis">{{ $ticket->id }}</td>
-	<td> {{ $ticket->pool_name }} </td>
+	{{-- @dd($ticket->pool) --}}
+	<td> {{ $ticket->ticketPool->name }} </td>
 	<td> {{ $ticket->reserved ? 'Yes' : 'No' }} </td>
 
 	<td>
 		@if (!empty($QrCode))
-			<a class="material-icon-wrapper block" href="{{ route('tickets.download-qr-code', $ticket) }}" target="_blank">
+			<a class="block material-icon-wrapper" href="{{ route('tickets.download-qr-code', $ticket) }}" target="_blank">
 				<span class="material-icons action">download_2</span>
 			</a>
 		@else

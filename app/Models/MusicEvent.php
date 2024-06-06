@@ -17,7 +17,7 @@ class MusicEvent extends Model
     public function tickets() {
         return $this->hasMany(Ticket::class);
     }
-    public function pools() {
+    public function ticketPools() {
         return $this->hasMany(TicketPool::class);
     }
 

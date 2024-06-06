@@ -15,6 +15,7 @@ export default {
             fontFamily: {
                 primary: ["Figtree", ...defaultTheme.fontFamily.sans],
             },
+            grayscale: ["disabled"],
         },
     },
 

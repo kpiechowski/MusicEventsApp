@@ -3,12 +3,16 @@ return [
 
     [
         'name' => 'Dashboard',
-        'route' => 'admin.dashboard'
+        'route' => 'admin.dashboard',
+        'routeGroup' => 'admin.dashboard',
+        'icon' => 'home',
         
     ],
     [
         'name' => 'Artists',
         'route' => 'admin.artists.index',
+        'routeGroup' => 'admin.artists',
+        'icon' => 'person',
         'dropdown' => [
             [
                 'name' => 'All artists',
@@ -23,6 +27,8 @@ return [
     [
         'name' => 'Events',
         'route' => 'admin.music-events.index',
+        'icon' => 'local_activity',
+        'routeGroup' => 'admin.music-events',
         'dropdown' => [
             [
                 'name' => 'All events',

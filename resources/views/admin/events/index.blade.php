@@ -6,6 +6,19 @@
 		</h2>
 	</x-slot>
 
+	<div class="flex items-center justify-between w-full pb-8 border-b border-gray-900">
+
+		<div>
+			Total events: {{ count($events) }}
+		</div>
+
+		<div>
+			<x-primary-button class="action" type="link" url="{{ route('admin.music-events.create') }}">
+				{{ __('Add new event') }}
+			</x-primary-button>
+		</div>
+	</div>
+
 	<div class="space-y-4">
 		@if (isset($events) && !empty($events))
 			@foreach ($events as $ev)

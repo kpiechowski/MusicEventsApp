@@ -6,25 +6,44 @@
 		</h2>
 	</x-slot>
 
-	<div class="mx-auto max-w-xl">
+	<div class="max-w-xl mx-auto">
 
-		{{-- @dump($artist->editable) --}}
+		<form action="{{ route('admin.artists.update', $artist) }}" method="POST" enctype="multipart/form-data">
+			@csrf
+			<div class="w-full mb-8 overflow-hidden rounded-xl">
 
-		<div class="mb-8 w-full overflow-hidden rounded-xl">
-			<livewire:image :src="$artist->getProfileAvatar()" />
-		</div>
+				<livewire:components.file-input class="mt-1" id="profile_avatar" name="profile_avatar"
+					preview="{{ $artist->getProfileAvatar() }}" />
 
-		<div class="space-y-4">
-			@foreach ($artist->editable as $field => $eventName)
+				{{-- <livewire:image class="h-auto w-[200px]" :src="$artist->getProfileAvatar()" /> --}}
+			</div>
+
+			<div class="space-y-4">
+
 				<div>
-					{{-- @dd($eventName) --}}
-					<x-input-label :for="$field" :value="__($field)" />
-					<livewire:components.model-edit-input :model="$artist" :field="$field" :eventName="$eventName" />
-
-					{{-- <x-input-error class="mt-2" :messages="$errors->get('name')" /> --}}
+					<x-input-label for="name" :value="__('Name')" />
+					<x-text-input class="block w-full mt-1" id="name" name="name" type="text"
+						value="{!! $artist->name !!}" required autofocus autocomplete="name" />
+					<x-input-error class="mt-2" :messages="$errors->get('name')" />
 				</div>
-			@endforeach
-		</div>
+				<div>
+					<x-input-label for="bio" :value="__('Bio')" />
+					<x-textarea-input class="block w-full mt-1" id="bio" name="bio" type="text" rows=5 :value="$artist->bio"
+						required autofocus autocomplete="bio" />
+					<x-input-error class="mt-2" :messages="$errors->get('bio')" />
+				</div>
+
+				{{-- @foreach ($artist->editable as $field => $eventName)
+						<div>
+							<x-input-label :for="$field" :value="__($field)" />
+							<livewire:components.model-edit-input :model="$artist" :field="$field" :eventName="$eventName" />
+						</div>
+						@endforeach --}}
+			</div>
+			<x-primary-button class="mt-8 action">
+				{{ __('Save changes') }}
+			</x-primary-button>
+		</form>
 
 	</div>
 

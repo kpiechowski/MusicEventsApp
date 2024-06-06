@@ -33,7 +33,8 @@
 					<div>
 
 						<x-input-label for="profile_avatar" :value="__('Profile Avatar')" />
-						<x-file-input class="block w-full mt-1" id="profile_avatar" name="profile_avatar" required />
+						<livewire:components.file-input class="mt-1" id="profile_avatar" name="profile_avatar" required />
+						{{-- <x-file-input class="block w-full mt-1" id="profile_avatar" name="profile_avatar" required /> --}}
 						<x-input-error class="mt-2" :messages="$errors->get('profile_avatar')" />
 
 					</div>

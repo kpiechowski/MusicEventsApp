@@ -16,10 +16,12 @@ return new class extends Migration
             // $table->id();
             $table->uuid('id')->primary();
             $table->foreignId('music_event_id');
-            $table->foreignId('user_id')->default(null);
+            $table->foreignId('user_id')->nullable()->default(null);
+            $table->foreignId('ticket_pool_id');
             $table->decimal('price', total: 8, places: 2);
-            $table->string('pool_name');
             $table->boolean('reserved')->default(false);
+            $table->string('qr_code_path')->nullable()->default(null);
+            $table->foreignId('order_id')->nullable();
 
             $table->timestamps();
         });

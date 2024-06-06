@@ -5,6 +5,19 @@
 		</h2>
 	</x-slot>
 
+	<div class="flex items-center justify-between w-full pb-8 border-b border-gray-900">
+
+		<div>
+			Total artists: {{ count($artists) }}
+		</div>
+
+		<div>
+			<x-primary-button class="action" type="link" url="{{ route('admin.artists.create') }}">
+				{{ __('Add new artist') }}
+			</x-primary-button>
+		</div>
+	</div>
+
 	@if (isset($artists) && !empty($artists))
 		<div class="space-y-4">
 

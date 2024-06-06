@@ -2,9 +2,11 @@
 
 namespace App\Livewire\MusicEvent;
 
+use App\Models\User;
 use App\Models\Ticket;
 use Livewire\Component;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Gate;
 use App\Jobs\Ticket\GenerateTicketQrCode;
 
 class TicketRowAction extends Component
@@ -22,6 +24,7 @@ class TicketRowAction extends Component
     }
 
     public function generateQrCode() {
+        Gate::allowIf(fn(User $user) => $user->is_admin);
         GenerateTicketQrCode::dispatchAfterResponse([$this->ticket]);
         // GenerateTicketQrCode::dispatch([$this->ticket]);
     }
